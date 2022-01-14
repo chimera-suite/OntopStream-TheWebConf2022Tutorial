@@ -1,0 +1,1 @@
+2021-11-26 15:59:10,010 ERROR com.ververica.flink.table.gateway.SqlGateway                  - Only Flink-1.11 is supported now!

@@ -1,0 +1,36 @@
+sudo docker-compose -f flink-kafka.yml exec sql-client /opt/flink-sql-gateway-0.2-SNAPSHOT/bin/sql-gateway.sh --library /opt/sql-client/lib
+
+
+MACCHINE (D1) -> 10:
+FJ7PUJJ
+JFGJ60A
+FGL1X62
+H3NP56Y
+DR7TGF0
+G16MEAR
+8NMSMII
+AB7TGX0
+RT5Y6ZX
+ADFTR34
+
+CAMION (D1) -> 6:
+HHST532
+DM89JKD
+KMCIOWM
+674GHDF
+JSDJFI3
+H39DXCO
+
+
+MACCHINE (D2) -> 6:
+DFU4HJF
+FJK48FJ
+UF94JF
+AL3SLS
+A49CKED
+045MDAX
+
+CAMION (D2) -> 3:
+KD94KDS
+012JKD0
+B38SDJA

@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  ontop:
+    hostname: ontop
+    container_name: ontop
+    image: chimerasuite/ontop-stream:2eb7ad5
+    environment: 
+      - ONTOP_ONTOLOGY_FILE=/opt/ontop/input/rentals.owl
+      - ONTOP_MAPPING_FILE=/opt/ontop/input/rentals.obda
+      - ONTOP_PROPERTIES_FILE=/opt/ontop/input/rentals.properties
+    ports:
+      - "81:8080"
+    volumes:
+      - ./ontop/input:/opt/ontop/input
+      - ./ontop/jdbc:/opt/ontop/jdbc
+ 
+networks:
+  default:
+    external:
+      name: RSE-net
