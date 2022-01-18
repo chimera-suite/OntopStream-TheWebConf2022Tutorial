@@ -66,6 +66,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/car-rental#hasEnd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/car-rental#hasEnd">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/car-rental#hasStart -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/car-rental#hasStart">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/car-rental#manufacturer -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/car-rental#manufacturer">

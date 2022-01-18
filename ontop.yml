@@ -17,4 +17,4 @@ services:
 networks:
   default:
     external:
-      name: RSE-net
+      name: TEST-net

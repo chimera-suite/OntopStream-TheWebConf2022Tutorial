@@ -84,7 +84,7 @@ services:
     hostname: jupyter
     container_name: jupyter
     ports:
-      - "80:8888"
+      - "8888:8888"
     environment:
       - GRANT_SUDO=yes
       - JUPYTER_TOKEN=TEST
@@ -94,4 +94,4 @@ services:
 
 networks: 
   default:
-    name: RSE-net
+    name: TEST-net

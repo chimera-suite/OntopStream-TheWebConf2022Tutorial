@@ -5,31 +5,31 @@ xsd:		http://www.w3.org/2001/XMLSchema#
 
 [MappingDeclaration] @collection [[
 mappingId	DEALER1-CarRental
-target		:D1_C{rid} a :Rental; :user :{user}; :hasStart {ts}; :car :{plate}. :{plate} a :Car; :manufacturer {manufacturer}; :model {model}.
+target		:D1_C{rid} a :Rental; :user :{user}; :hasStart {ts}^^xsd:dateTime; :car :{plate}. :{plate} a :Car; :manufacturer {manufacturer}; :model {model}.
 source		SELECT rid,user,ts,plate,manufacturer,model FROM D1_CARS WHERE status='START'
 
 mappingId	DEALER1-TruckRental
-target		:D1_T{rid} a :Rental; :user :{user}; :hasStart {ts}; :truck :{plate}. :{plate} a :Truck; :manufacturer {manufacturer}; :model {model}.
+target		:D1_T{rid} a :Rental; :user :{user}; :hasStart {ts}^^xsd:dateTime; :truck :{plate}. :{plate} a :Truck; :manufacturer {manufacturer}; :model {model}.
 source		SELECT rid,user,ts,plate,manufacturer,model FROM D1_TRUCKS WHERE status='START'
 
 mappingId	DEALER1-CarRentalEnd
-target		:D1_C{rid} a :RentalEnd; :hasEnd {ts}; :car :{plate}.
+target		:D1_C{rid} a :RentalEnd; :hasEnd {ts}^^xsd:dateTime; :car :{plate}.
 source		SELECT rid,ts,plate FROM D1_CARS WHERE status='END'
 
 mappingId	DEALER1-TruckRentalEnd
-target		:D1_T{rid} a :RentalEnd; :hasEnd {ts}; :truck :{plate}.
+target		:D1_T{rid} a :RentalEnd; :hasEnd {ts}^^xsd:dateTime; :truck :{plate}.
 source		SELECT rid,ts,plate FROM D1_TRUCKS WHERE status='END'
 
 mappingId	DEALER2-CarRental
-target		:D2_{rid} a :Rental; :user :{name}; :hasStart {ts}; :car :{plate}. :{plate} a :Car; :manufacturer {manufacturer}; :model {model}.
+target		:D2_{rid} a :Rental; :user :{name}; :hasStart {ts}^^xsd:dateTime; :car :{plate}. :{plate} a :Car; :manufacturer {manufacturer}; :model {model}.
 source		SELECT rid,name,ts,plate,manufacturer,model FROM D2_VEHICLES,D2_USERS WHERE D2_VEHICLES.userID=D2_USERS.userID AND type='Car' AND status='START'
 
 mappingId	DEALER2-TruckRental
-target		:D2_{rid} a :Rental; :user :{name}; :hasStart {ts}; :truck :{plate}. :{plate} a :Truck; :manufacturer {manufacturer}; :model {model}.
+target		:D2_{rid} a :Rental; :user :{name}; :hasStart {ts}^^xsd:dateTime; :truck :{plate}. :{plate} a :Truck; :manufacturer {manufacturer}; :model {model}.
 source		SELECT rid,name,ts,plate,manufacturer,model FROM D2_VEHICLES,D2_USERS WHERE D2_VEHICLES.userID=D2_USERS.userID AND type='Truck' AND status='START'
 
 mappingId	DEALER2-RentalEnd
-target		:D2_{rid} a :RentalEnd; :hasEnd {ts}; :vehicle :{plate}.
+target		:D2_{rid} a :RentalEnd; :hasEnd {ts}^^xsd:dateTime; :vehicle :{plate}.
 source		SELECT rid,ts,plate FROM D2_VEHICLES,D2_USERS WHERE D2_VEHICLES.userID=D2_USERS.userID AND status='END'
 ]]
 

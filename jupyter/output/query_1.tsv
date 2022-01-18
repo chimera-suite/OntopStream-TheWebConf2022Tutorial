@@ -1,0 +1,17 @@
+?user	?car	?model	?start
+<http://www.semanticweb.org/car-rental#Molly%20Davis>	<http://www.semanticweb.org/car-rental#FJ7PUJJ>	Panda	"2022-01-18 15:13:06"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Laura%20Baker>	<http://www.semanticweb.org/car-rental#JFGJ60A>	Model S	"2022-01-18 15:13:43"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#William%20Diaz>	<http://www.semanticweb.org/car-rental#FGL1X62>	Tipo	"2022-01-18 15:14:07"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Kevin%20Rodriguez>	<http://www.semanticweb.org/car-rental#DFU4HJF>	A3	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Catherine%20Crandell>	<http://www.semanticweb.org/car-rental#784JD93>	Classe C	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Douglas%20Fitch>	<http://www.semanticweb.org/car-rental#UF94JF>	"911"	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Kevin%20Rodriguez>	<http://www.semanticweb.org/car-rental#UF94JF>	"911"	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#William%20Diaz>	<http://www.semanticweb.org/car-rental#AL3SLS>	A4	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Jane%20McPeak>	<http://www.semanticweb.org/car-rental#A49CKED>	Cayenne	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Mark%20Haws>	<http://www.semanticweb.org/car-rental#A49CKED>	Cayenne	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Richard%20Tillman>	<http://www.semanticweb.org/car-rental#045MDAX>	TT	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Kevin%20Rodriguez>	<http://www.semanticweb.org/car-rental#045MDAX>	TT	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Mark%20Haws>	<http://www.semanticweb.org/car-rental#D74HJDK>	Classe E	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Mark%20Haws>	<http://www.semanticweb.org/car-rental#AL3SLS>	A4	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Douglas%20Fitch>	<http://www.semanticweb.org/car-rental#A49CKED>	Cayenne	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.semanticweb.org/car-rental#Kevin%20Rodriguez>	<http://www.semanticweb.org/car-rental#FJK48FJ>	A4	"2022-01-18 15:13:13"^^<http://www.w3.org/2001/XMLSchema#dateTime>
