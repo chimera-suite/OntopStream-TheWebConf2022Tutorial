@@ -1,0 +1,34 @@
+from SPARQLStreamWrapper import SPARQLStreamWrapper, CSV
+import os
+
+sparql = SPARQLStreamWrapper("http://ontop:8080/sparql")
+sparql.setQuery("""
+PREFIX : <http://www.semanticweb.org/car-rental#>
+
+SELECT (COUNT(?truck) AS ?cnt)
+FROM NAMED WINDOW :wind1 ON :trips [RANGE PT1M STEP PT1M]
+WHERE {
+    ?truck a :Truck; :manufacturer ?manuf.
+}
+GROUP BY ?manuf
+""")
+
+sparql.addParameter("streaming-mode","single-element")
+sparql.setReturnFormat(CSV)
+
+file=open("output/query_4.csv", "w+")
+
+results=sparql.query()
+
+try:
+    for result in results:
+        data = result.getRawResponse().decode('utf8')                     # Get response from OntopStream
+        data = data.replace("http://www.semanticweb.org/car-rental#","")  # Remove prefixes
+        print(data)
+        file.write(data)                                                  # Write response in a file
+        file.flush()                                                      # Flush the writing operation
+        os.fsync(file.fileno())
+except KeyboardInterrupt:
+    sparql.endQuery()
+    file.close()
+    print("Ended by user")
