@@ -51,29 +51,31 @@ The company management has decided to adopt OntopStream for the integration.
 
 ## Kafka
 
+Note: the field `ts` represents ___non-decreasing timestamps___(format ``%Y-%m-%d %H:%M:%S`) generated in real-time when the rental entry is published in a Kafka topic.
+
 ### Branch A
 
 The __Branch A__ stores the car and truck rentals data in two separate Kafka topics:
 
 __DEALER1_CARS__
 
-| user|rid|manufacturer|model|plate|status|
-| :--- |:----:|:----:|:----:|:----:| ---: |
-|Molly Davis|1|Fiat|Panda|FJ7PUJJ|START|
-|Laura Baker|2|Tesla|Model S|JFGJ60A|START|
-|William Diaz|3|Fiat|Tipo|FGL1X62|START|
-|Molly Davis|1|Fiat|Panda|FJ7PUJJ|END|
-|William Diaz|3|Fiat|Tipo|FGL1X62|END|
+| user|rid|manufacturer|model|plate|status|ts|
+|:---|:----:|:----:|:----:|:----:|:----:|---:|
+|Molly Davis|1|Fiat|Panda|FJ7PUJJ|START|t1|
+|Laura Baker|2|Tesla|Model S|JFGJ60A|START|t2|
+|William Diaz|3|Fiat|Tipo|FGL1X62|START|t5|
+|Molly Davis|1|Fiat|Panda|FJ7PUJJ|END|t7|
+|William Diaz|3|Fiat|Tipo|FGL1X62|END|t7|
 
 __DEALER1_TRUCKS__
 
 | user|rid|manufacturer|model|plate|status|
 | :--- |:----:|:----:|:----:|:----:| ---: |
-|Laura Baker|1|Iveco|Daily|HHST532|START|
-|Wayne Flower|2|Fiat|Ducato|DM89JKD|START|
-|Richard Tillman|5|Fiat|Ducato|JSDJFI3|START|
-|Richard Tillman|5|Fiat|Ducato|JSDJFI3|END|
-|Wayne Flower|2|Fiat|Ducato|DM89JKD|END|
+|Laura Baker|1|Iveco|Daily|HHST532|START|t1|
+|Wayne Flower|2|Fiat|Ducato|DM89JKD|START|t3|
+|Richard Tillman|5|Fiat|Ducato|JSDJFI3|START|t6|
+|Richard Tillman|5|Fiat|Ducato|JSDJFI3|END|t9|
+|Wayne Flower|2|Fiat|Ducato|DM89JKD|END|t10|
 
 Each kafka message represents a rental update according to its `status`:
 - `START` messages are used for new rentals
@@ -85,14 +87,14 @@ The __Branch B__ stores the car and truck rentals data in a single Kafka topics,
 
 __DEALER2_VEHICLES__
 
-|userID|rid|type|manufacturer|model|plate|status|   
-| :---|:----:|:----:|:----:|:----:|:----:|---: |
-|3|1|Car|Audi|A3|DFU4HJF|START|
-|4|2|Car|Mercedes|Classe C|784JD93|START|
-|3|7|Truck|Mercedes|Vito|KD94KDS|START|
-|3|1|Car|Audi|A3|DFU4HJF|END|
-|6|8|Truck|Mercedes|Vito|012JKD0|START|
-|3|7|Truck|Mercedes|Vito|KD94KDS|END|
+|userID|rid|type|manufacturer|model|plate|status|ts|
+|:---|:----:|:----:|:----:|:----:|:----:|:----:|---:|
+|3|1|Car|Audi|A3|DFU4HJF|START|t1|
+|4|2|Car|Mercedes|Classe C|784JD93|START|t2|
+|3|7|Truck|Mercedes|Vito|KD94KDS|START|t3|
+|3|1|Car|Audi|A3|DFU4HJF|END|t4|
+|6|8|Truck|Mercedes|Vito|012JKD0|START|t5|
+|3|7|Truck|Mercedes|Vito|KD94KDS|END|t6|
 
 Each kafka message represents a rental update according to its `status`:
 - `START` messages are used for new rentals

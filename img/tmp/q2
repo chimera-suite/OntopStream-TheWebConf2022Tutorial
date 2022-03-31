@@ -1,0 +1,27 @@
+?user	?car	?man	?model	?start
+
+<Laura Baker>	<JFGJ60A>	Tesla	Model S	"2022-02-01 20:47:24"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Douglas Fitch>	<DR7TGF0>	Tesla	Model X	"2022-02-01 20:53:28"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Lucille Bouchard>	<8NMSMII>	Tesla	Model X	"2022-02-01 20:56:05"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Douglas Fitch>	<AB7TGX0>	Tesla	Model Y	"2022-02-01 20:57:31"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Frank Cover>	<JFGJ60A>	Tesla	Model S	"2022-02-01 20:58:56"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Douglas Fitch>	<RT5Y6ZX>	Tesla	Model X	"2022-02-01 21:09:50"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Douglas Fitch>	<ADFTR34>	Tesla	Model X	"2022-02-01 21:10:14"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Douglas Fitch>	<UF94JF>	Porsche	"911"	"2022-02-01 20:47:42"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Kevin Rodriguez>	<UF94JF>	Porsche	"911"	"2022-02-01 20:56:07"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Jane McPeak>	<A49CKED>	Porsche	Cayenne	"2022-02-01 20:52:55"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Mark Haws>	<A49CKED>	Porsche	Cayenne	"2022-02-01 20:49:30"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Douglas Fitch>	<A49CKED>	Porsche	Cayenne	"2022-02-01 21:00:19"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+
+<Stephine Trent>	<JFGJ60A>	Tesla	Model S	"2022-02-01 21:19:32"^^<http://www.w3.org/2001/XMLSchema#dateTime>
