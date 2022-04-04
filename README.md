@@ -361,15 +361,13 @@ Hence, we can use a Jupyter notebook and the SPARQLStreamWrapper library to regi
 For example, we can use the following code to get the rentals of Porsche and Tesla cars from both the branches:
 
 ```python
-from SPARQLStreamWrapper import SPARQLStreamWrapper, CSV, JSONL, TSV
-import json
-import os
+from SPARQLStreamWrapper import SPARQLStreamWrapper, TSV
 
 sparql = SPARQLStreamWrapper("http://ontop:8080/sparql")
 sparql.setQuery("""
 PREFIX : <http://www.semanticweb.org/car-rental#>
 
-SELECT ?user ?car ?model ?start
+SELECT ?user ?car ?man ?model ?start
 
 WHERE {
     ?car a :Car; :model ?model; :manufacturer ?man.
@@ -382,20 +380,15 @@ WHERE {
 sparql.addParameter("streaming-mode","single-element")
 sparql.setReturnFormat(TSV)
 
-file=open("query.tsv", "w+")
-
 results=sparql.query()
 
 try:
     for result in results:
-        data = result.getRawResponse().decode('utf8')
+        data = result.getRawResponse().decode('utf8')     # Get response from OntopStream
+        data = data.replace("%20"," ")                    # Clean IDs
         print(data)
-        file.write(data)
-        file.flush()
-        os.fsync(file.fileno())
 except KeyboardInterrupt:
     sparql.endQuery()
-    file.close()
     print("Ended by user")
 ```
 
@@ -403,37 +396,38 @@ The company has rented both Mercedes cars and trucks during its operations. We c
 
 
 ```python
-from SPARQLStreamWrapper import SPARQLStreamWrapper, CSV, JSONL, TSV
-import json
+from SPARQLStreamWrapper import SPARQLStreamWrapper, CSV
 import os
 
 sparql = SPARQLStreamWrapper("http://ontop:8080/sparql")
 sparql.setQuery("""
 PREFIX : <http://www.semanticweb.org/car-rental#>
 
-SELECT ?user ?car ?man ?start
+SELECT ?user ?plate ?model ?start
 
 WHERE {
-    ?v a :Vehicle; :manufacturer ?man.
-    ?rent a :Rental; :car ?car.
+    ?plate a :Vehicle; :manufacturer ?man; :model ?model.
+    ?rent a :Rental; :vehicle ?plate.
     ?rent :hasStart ?start; :user ?user.
     FILTER(?man="Mercedes")
 }
 """)
 
 sparql.addParameter("streaming-mode","single-element")
-sparql.setReturnFormat(TSV)
+sparql.setReturnFormat(CSV)
 
-file=open("query.tsv", "w+")
+file=open("output/query_3.csv", "w+")
 
 results=sparql.query()
 
 try:
     for result in results:
-        data = result.getRawResponse().decode('utf8')
+        data = result.getRawResponse().decode('utf8')                     # Get response from OntopStream
+        data = data.replace("http://www.semanticweb.org/car-rental#","")  # Remove prefixes
+        data = data.replace("%20"," ")                                    # Clean Names
         print(data)
-        file.write(data)
-        file.flush()
+        file.write(data)                                                  # Write response in the file
+        file.flush()                                                      # Flush the writing operation
         os.fsync(file.fileno())
 except KeyboardInterrupt:
     sparql.endQuery()
