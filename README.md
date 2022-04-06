@@ -435,6 +435,8 @@ except KeyboardInterrupt:
     print("Ended by user")
 ```
 
+__Note:__ The query will be terminated after stopping the run of the notebook cell. They may take a while because they're terminated when Flink detects that is not able to deliver new query results. If you want to delete the query execution immediately, you can use the [Flink Dashboard](http://localhost:8081).
+
 ## C) Tutorial end
 
 To close the Flink REST service endpoint, press `CTRL+C` on the terminal.
