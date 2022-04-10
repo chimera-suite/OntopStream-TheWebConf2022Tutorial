@@ -6,18 +6,20 @@ In this tutorial, we will see how to design a Streaming Virtual Knowledge Graph 
 
 ## A) Tutorial setup
 
+__Note:__ use `sudo <command>` if you need administrator privileges on UNIX systems...
+
 ### 1. Start Flink, Kafka and Jupyter
 
 The following commands will start the streaming data infrastructure (Kafka and Flink), as well as the JupyterLab Environment
 
 ```
-sudo docker-compose -f flink-kafka.yml up -d
+docker-compose -f flink-kafka.yml up -d
 ```
 
 Next, ont the same terminal, you have also to start the Flink JDBC service (wait 30 seconds to leave Flink starting up):
 
 ```
-sudo docker-compose -f flink-kafka.yml exec sql-client /opt/flink-sql-gateway-0.2-SNAPSHOT/bin/sql-gateway.sh --library /opt/sql-client/lib
+docker-compose -f flink-kafka.yml exec sql-client /opt/flink-sql-gateway-0.2-SNAPSHOT/bin/sql-gateway.sh --library /opt/sql-client/lib
 ```
 
 __Note(1)__: keep the JDBC endpoint alive until you need the service (don't close the terminal window).
@@ -29,7 +31,7 @@ __Note(2)__: the JDBC driver mappings are persisted on the local file [sql-gatew
 Open a ___new terminal window___, then run the command:
 
 ```
-sudo docker-compose -f ontop.yml up -d
+docker-compose -f ontop.yml up -d
 ```
 
 The OntopStream instance will automatically load the configuration files (ontology, OBDA mappings, JDBC properties) from the `ontop/input` folder.
@@ -444,9 +446,9 @@ To close the Flink REST service endpoint, press `CTRL+C` on the terminal.
 Then, you can terminate all the instances, using the following commands:
 
 ```
-sudo docker-compose -f ontop.yml down
+docker-compose -f ontop.yml down
 
-sudo docker-compose -f flink-kafka.yml down
+docker-compose -f flink-kafka.yml down
 ```
 
 # Additional Tools
@@ -468,5 +470,5 @@ sudo docker-compose -f flink-kafka.yml down
 Flink's built-in shell to run FlinkSQL queries to compare with the stream of (relational) data in the streaming tables:
 
 ```
-sudo docker-compose -f flink-kafka.yml exec sql-client ./sql-client.sh
+docker-compose -f flink-kafka.yml exec sql-client ./sql-client.sh
 ```
