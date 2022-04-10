@@ -3,7 +3,8 @@ services:
   sql-client:
     hostname: sql-client
     container_name: sql-client
-    image: flink-sql-custom:latest
+    image: flink-sql-client:latest
+    build: ./flink/client-image
     ports:
       - "8073:8083"
     depends_on:
@@ -24,7 +25,7 @@ services:
     container_name: jobmanager
     image: flink:1.11.1-scala_2.11
     ports:
-      - "443:8081"
+      - "8081:8081"
     command: jobmanager
     environment:
       - |
@@ -45,7 +46,7 @@ services:
       - |
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
-        taskmanager.numberOfTaskSlots: 3
+        taskmanager.numberOfTaskSlots: 2
         taskmanager.memory.process.size: 3g
 
   zookeeper:
@@ -74,9 +75,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      # -v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v-v
       # Useful settings for development/laptop use - modify as needed for Prod
-      # This one makes ksqlDB feel a bit more responsive when queries start running
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
       
   jupyter:
