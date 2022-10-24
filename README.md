@@ -12,14 +12,20 @@ __Note:__ use `sudo <command>` if you need administrator privileges on UNIX syst
 
 The following commands will start the streaming data infrastructure (Kafka and Flink), as well as the JupyterLab Environment
 
+UNIX/Mac:
 ```
-docker-compose -f flink-kafka.yml up -d
+docker-compose -f flink-kafka-unix.yml up -d
+```
+
+Windows:
+```
+docker-compose -f flink-kafka-win.yml up -d
 ```
 
 Next, ont the same terminal, you have also to start the Flink JDBC service (wait 30 seconds to leave Flink starting up):
 
 ```
-docker-compose -f flink-kafka.yml exec sql-client /opt/flink-sql-gateway-0.2-SNAPSHOT/bin/sql-gateway.sh --library /opt/sql-client/lib
+docker exec -it sql-client /opt/flink-sql-gateway-0.2-SNAPSHOT/bin/sql-gateway.sh --library /opt/sql-client/lib
 ```
 
 __Note(1)__: keep the JDBC endpoint alive until you need the service (don't close the terminal window).
